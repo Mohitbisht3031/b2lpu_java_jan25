@@ -1,0 +1,6 @@
+Welcome to the new session and batch of java!
+To clone this repo use
+-> git clone https://github.com/Mohitbisht3031/b2lpu_java_jan25.git
+
+To pull the new changes in you repo which i'll be pushing after the class do 
+-> git pull
