@@ -5,39 +5,45 @@ public class User {
     String phnNo;
     String accNo;
     double balance;
-
-    User(String name,String phnNo,double balance){
+    String PIN;
+    public User(String name,String phnNo,double balance,String PIN){
         this.name = name;
         this.phnNo = phnNo;
         this.balance = balance;
+        this.PIN = PIN;
     }
 
     // getter methods
-    String getUserName(){
+    public String getUserName(){
         return name;
     }
-    String getUserPhnNo(){
+    public String getUserPhnNo(){
         return phnNo;
     }
-    String getAcctNo(){
+    public String getAcctNo(){
         return accNo;
     }
-    double getBalance(){
+    public double getBalance(){
         return balance;
     }
-
+    public String getPin(){
+        return PIN;
+    }
     // setter methods
-    void setName(String n){
+    public void setName(String n){
         name = n;
     }
-    void updatePhnNo(String str){
+    public void updatePhnNo(String str){
         phnNo = str;
     }
-    void setAccNo(String no){
+    public void setAccNo(String no){
         accNo = no;
     }
-    void updateBalance(double b){
+    public void updateBalance(double b){
         balance = b;
+    }
+    public void updatePin(String PIN){
+        this.PIN = PIN;
     }
 
 }
