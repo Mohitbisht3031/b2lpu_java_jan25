@@ -6,11 +6,12 @@ public class User {
     String accNo;
     double balance;
     String PIN;
-    public User(String name,String phnNo,double balance,String PIN){
+    public User(String name,String phnNo,double balance,String PIN,String accNo){
         this.name = name;
         this.phnNo = phnNo;
         this.balance = balance;
         this.PIN = PIN;
+        this.accNo = accNo;
     }
 
     // getter methods
