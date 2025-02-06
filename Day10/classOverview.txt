@@ -1,0 +1,2 @@
+We Continued working on the ATM functionality we made in Day8
+-> implemented things like card auth,ATM options,private static variables

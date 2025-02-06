@@ -3,7 +3,7 @@ import Day5.User;
 
 public class middleAuth {
     private static User arr[] = new User[3];
-    // static
+    // static block // initilizer block
     static{
         System.out.println("inside the static block!");
         arr[0] = new User("Abhi", "9999999", 100000000.0,"1234","1");
@@ -26,7 +26,7 @@ public class middleAuth {
     // auth method for card
     public String authForCard(String name,String Pin){
         for(User user : arr){
-        if(user.getUserName().equalsIgnoreCase(name) && user.getPin().equalsIgnoreCase(Pin))return user.getUserName();}
+        if(user.getUserName().equalsIgnoreCase(name) && user.getPin().equalsIgnoreCase(Pin))return user.getAcctNo();}
         return null;
     }
 
@@ -44,20 +44,34 @@ public class middleAuth {
     }
     // for credit amount
     public boolean creditAmount(String accNo,double amount){
-        for(var user : arr)user.updateBalance(amount+user.getBalance());
+        for(var user : arr){
+            if(user.getAcctNo().equalsIgnoreCase(accNo)){
+                double b = user.getBalance();
+                user.updateBalance(b+amount);
+            }
+        }
         return true;
     }
     // method to get balance
     public double getBalance(String accNo){
-        for(var user : arr)
-        return user.getBalance();
+        for(var user : arr){
+            if(user.getAcctNo().equalsIgnoreCase(accNo)){
+                double b = user.getBalance();
+                return b;
+            }
+        }
         return 0;
     }
 
     // to change the PIN
-    public boolean changePin(String accNo,String Pin){
-        // we will make thios dynamic on the bases of the user base
-        for(var user : arr)user.updatePin(Pin);
-        return true;
+    public boolean changePin(String accNo,String oldPin,String Pin){
+        // we will make this dynamic on the bases of the user base
+        for(var user : arr){
+            if(user.getAcctNo().equalsIgnoreCase(accNo) && user.getPin().equalsIgnoreCase(oldPin)){
+                user.updatePin(Pin);
+                return true;
+            }
+        }
+        return false;
     }
 }
