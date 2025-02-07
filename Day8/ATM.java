@@ -15,33 +15,55 @@ public class ATM {
         System.out.println("3. Debit");
         System.out.println("4. Update pin");
 
-        int opt = sc.nextInt();
-        switch(opt){
-            case 1 :
-            System.out.println("checking balance...");
-            break;
-            case 2 :
-            System.out.println("crediting...");
-            break;
-            case 3:
-            System.out.println("debiting...");
-            break;
-            case 4:
-            System.out.println("updating pin...");
-            break;
-            default:
-            System.out.println("wrong option");
-        }        
+        int c = 1;
+        while(c >= 1){
+
+            int opt = sc.nextInt();
+            switch(opt){
+                case 1 :
+                    System.out.println("checking balance...");
+                    double b= maObj.getBalance(accNo);
+                    System.out.println("the current balance is "+b);
+                break;
+                case 2 :
+                    System.out.println("crediting...");
+                    int amount = sc.nextInt();
+                    boolean f = maObj.creditAmount(accNo, amount);
+                    if(f)System.out.println(amount+" creditied , updated balance is "+maObj.getBalance(accNo));
+                    else System.out.println("Sorry, having issue while crediting. Try again!");
+                break;
+                case 3:
+                    System.out.println("debiting...");
+                    amount = sc.nextInt();
+                    f = maObj.debitAmount(accNo, amount);
+                    if(f)System.out.println(amount+" debited, updated balance is "+maObj.getBalance(accNo));
+                    else System.out.println("Sorry, having issue while debiting, check balance before trying again!");
+                break;
+                case 4:
+                    System.out.println("updating pin...");
+                    String nPin = sc.nextLine();
+                    if(maObj.changePin(accNo, pin, nPin))System.out.println("Pin updated");
+                    else System.out.println("error while updating the pin, try again later!");
+                break;
+                default:
+                System.out.println("wrong option");
+            }       
+            System.out.println("Do you want to continue ?(y/n) : ");
+            String ip = sc.nextLine();
+            if(ip.equalsIgnoreCase("n"))System.exit(0);
+        }
     }
     public static void main(String[] args) {
         sc = new Scanner(System.in);
-        System.out.println("You want to do cardless transaction ? (Yes/No):");
+        StringBuffer sb = new StringBuffer("You want to do cardless transaction ?");
+        sb.append( "(Yes/No):");
+        System.out.println(sb.toString());
         String want = sc.nextLine();
         // 1. validate the i/p 
         // 2. based on the choice show or ask them for the input again!
         if(want.equalsIgnoreCase("yes")){
             maObj = new middleAuth();
-
+            middleAuth obj2 = new middleAuth();
             System.out.println("Can you please given the accNo:");
             String accNo = sc.nextLine();
             System.out.println("Please provide the Pin:");

@@ -7,7 +7,7 @@ public class middleAuth {
     static{
         System.out.println("inside the static block!");
         arr[0] = new User("Abhi", "9999999", 100000000.0,"1234","1");
-        arr[1] = new User("Anu", "9999988", 999999999.0,"1235","2");
+        arr[1] = new User("Anu", "9999988", 99999.0,"1235","2");
         arr[2] = new User("Raj", "9999888", 1000000009.0,"1236","3");
     }
     public middleAuth(){
