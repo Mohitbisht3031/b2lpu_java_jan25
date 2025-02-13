@@ -2,6 +2,7 @@ package Day7;
 import Day5.User;
 
 public class middleAuth {
+    // dynamic
     private static User arr[] = new User[3];
     // static block // initilizer block
     static{
@@ -73,5 +74,10 @@ public class middleAuth {
             }
         }
         return false;
+    }
+
+    //To create an Account use this API
+    public String createAccount(){
+        return "";
     }
 }

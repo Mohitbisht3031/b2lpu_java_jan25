@@ -48,6 +48,7 @@ public class ATM {
                 default:
                 System.out.println("wrong option");
             }       
+            sc.nextLine();
             System.out.println("Do you want to continue ?(y/n) : ");
             String ip = sc.nextLine();
             if(ip.equalsIgnoreCase("n"))System.exit(0);
@@ -55,15 +56,16 @@ public class ATM {
     }
     public static void main(String[] args) {
         sc = new Scanner(System.in);
-        StringBuffer sb = new StringBuffer("You want to do cardless transaction ?");
+        StringBuffer sb = new StringBuffer("1. You want to do cardless transaction ?");
         sb.append( "(Yes/No):");
         System.out.println(sb.toString());
+        System.out.println("2. Do you want to card transaction ?");
+        System.out.println("3. Do you want to open an account ?");
         String want = sc.nextLine();
         // 1. validate the i/p 
         // 2. based on the choice show or ask them for the input again!
-        if(want.equalsIgnoreCase("yes")){
+        if(want.equalsIgnoreCase("1")){
             maObj = new middleAuth();
-            middleAuth obj2 = new middleAuth();
             System.out.println("Can you please given the accNo:");
             String accNo = sc.nextLine();
             System.out.println("Please provide the Pin:");
@@ -71,9 +73,13 @@ public class ATM {
 
             String name = maObj.authForCardless(accNo, pin);
             if(name != null)System.out.println("Heloo "+name+"!");
-            else{
+            else if(want.equalsIgnoreCase("2")){
                 System.out.println("you have provided the wrong information !!");
                 System.exit(0);
+            }else if(want.equalsIgnoreCase("3")){
+                maObj.createAccount();
+            }else{
+                System.out.println("Wrong option");
             }
             // give atm option and implement the class
             ATMOption(accNo,pin);
