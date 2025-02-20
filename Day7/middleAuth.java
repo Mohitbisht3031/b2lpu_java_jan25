@@ -1,15 +1,20 @@
 package Day7;
+import java.util.ArrayList;
+
+import org.xml.sax.SAXException;
+
 import Day5.User;
 
 public class middleAuth {
     // dynamic
-    private static User arr[] = new User[3];
+    // private static User arr[] = new User[3];
+    private static ArrayList<User> arr = new ArrayList<>();
     // static block // initilizer block
     static{
         System.out.println("inside the static block!");
-        arr[0] = new User("Abhi", "9999999", 100000000.0,"1234","1");
-        arr[1] = new User("Anu", "9999988", 99999.0,"1235","2");
-        arr[2] = new User("Raj", "9999888", 1000000009.0,"1236","3");
+        arr.add(new User("Abhi", "9999999", 100000000.0,"1234","1"));
+        arr.add(new User("Anu", "9999988", 99999.0,"1235","2"));
+        arr.add(new User("Raj", "9999888", 1000000009.0,"1236","3"));
     }
     public middleAuth(){
         System.out.println("default const!");
@@ -77,7 +82,9 @@ public class middleAuth {
     }
 
     //To create an Account use this API
-    public String createAccount(){
-        return "";
+    public String createAccount(String name,String pin,double b){
+        Integer i = arr.size()+1;
+        arr.add(new User(name, "999999", b, pin, i.toString()));
+        return i.toString();
     }
 }

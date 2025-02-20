@@ -1,0 +1,1 @@
+created the create account API in ATM US and also introduced arraylist to make inswertion dynamic

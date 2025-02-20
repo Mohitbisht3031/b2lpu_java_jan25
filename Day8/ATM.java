@@ -84,7 +84,7 @@ public class ATM {
             // give atm option and implement the class
             ATMOption(accNo,pin);
 
-        }else{
+        }else if(want.equalsIgnoreCase("2")){
             // System.out.println("else block for card based transactions!");
             System.out.println("Can you please provide your name:");
             String name = sc.nextLine();
@@ -98,6 +98,19 @@ public class ATM {
             else System.out.println("Hello "+name+"!");
             // authenticate the user
             ATMOption(acctNo,pin);
+        }else if(want.equalsIgnoreCase("3")){
+            String name = sc.nextLine();
+            String Pin = sc.nextLine();
+            double b = sc.nextDouble();
+            System.out.println("Can you please tell me the type of account");
+            sc.nextLine();
+            String type = sc.nextLine();
+            if(type.equalsIgnoreCase("Svaings")){
+
+            }else{
+                
+            }
+            String acctNo = maObj.createAccount(name,Pin,b);
         }
      
         sc.close();
