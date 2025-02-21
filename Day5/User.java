@@ -6,7 +6,8 @@ public class User {
     String accNo;
     double balance;
     String PIN;
-    public User(String name,String phnNo,double balance,String PIN,String accNo){
+    String type;
+    public User(String name,String phnNo,double balance,String PIN,String accNo,String type){
         this.name = name;
         this.phnNo = phnNo;
         this.balance = balance;

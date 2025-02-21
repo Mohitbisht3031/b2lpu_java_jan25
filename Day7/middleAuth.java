@@ -12,9 +12,9 @@ public class middleAuth {
     // static block // initilizer block
     static{
         System.out.println("inside the static block!");
-        arr.add(new User("Abhi", "9999999", 100000000.0,"1234","1"));
-        arr.add(new User("Anu", "9999988", 99999.0,"1235","2"));
-        arr.add(new User("Raj", "9999888", 1000000009.0,"1236","3"));
+        arr.add(new User("Abhi", "9999999", 100000000.0,"1234","1","Saving"));
+        arr.add(new User("Anu", "9999988", 99999.0,"1235","2","Saving"));
+        arr.add(new User("Raj", "9999888", 1000000009.0,"1236","3","Saving"));
     }
     public middleAuth(){
         System.out.println("default const!");
@@ -82,9 +82,9 @@ public class middleAuth {
     }
 
     //To create an Account use this API
-    public String createAccount(String name,String pin,double b){
+    public String createAccount(String name,String pin,double b,String type){
         Integer i = arr.size()+1;
-        arr.add(new User(name, "999999", b, pin, i.toString()));
+        arr.add(new User(name, "999999", b, pin, i.toString(),type));
         return i.toString();
     }
 }

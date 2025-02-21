@@ -4,6 +4,9 @@ import java.util.Scanner;
 import Day5.User;
 
 public class ATM {
+    enum Types{
+        Savings,Current;
+    }
     private static Scanner sc = null;
     private static middleAuth maObj = null ;
     private static void ATMOption(String accNo,String pin){
@@ -76,8 +79,6 @@ public class ATM {
             else if(want.equalsIgnoreCase("2")){
                 System.out.println("you have provided the wrong information !!");
                 System.exit(0);
-            }else if(want.equalsIgnoreCase("3")){
-                maObj.createAccount();
             }else{
                 System.out.println("Wrong option");
             }
@@ -105,12 +106,14 @@ public class ATM {
             System.out.println("Can you please tell me the type of account");
             sc.nextLine();
             String type = sc.nextLine();
-            if(type.equalsIgnoreCase("Svaings")){
-
+            String acctNo = null;
+            if(type.equalsIgnoreCase(Types.Savings.name())){
+                acctNo = maObj.createAccount(name, Pin, b,Types.Savings.name());
             }else{
-                
+                acctNo = maObj.createAccount(name, Pin, b,Types.Current.name());
             }
-            String acctNo = maObj.createAccount(name,Pin,b);
+            // String acctNo = maObj.createAccount(name,Pin,b);
+            System.out.println("your account number is "+acctNo);
         }
      
         sc.close();
