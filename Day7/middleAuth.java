@@ -1,8 +1,6 @@
 package Day7;
 import java.util.ArrayList;
 
-import org.xml.sax.SAXException;
-
 import Day5.User;
 
 public class middleAuth {
